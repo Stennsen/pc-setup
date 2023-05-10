@@ -1,15 +1,11 @@
-FROM registry.fedoraproject.org/fedora-toolbox:latest
+FROM opensuse/tumbleweed
 
-RUN dnf update -y;
-RUN echo -e '\
-[gitlab.com_paulcarroty_vscodium_repo]\n\
-name=gitlab.com_paulcarroty_vscodium_repo\n\
-baseurl=https://paulcarroty.gitlab.io/vscodium-deb-rpm-repo/rpms/\n\
-enabled=1\n\
-gpgcheck=1\n\
-repo_gpgcheck=1\n\
-gpgkey=https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/raw/master/pub.gpg\n\
-metadata_expire=1h\n\
-' > /etc/yum.repos.d/vscodium.repo
+RUN zypper update -y
 
-RUN dnf install codium podman neovim -y
+RUN rpm --import https://packages.microsoft.com/keys/microsoft.asc && sh -c 'echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ntype=rpm-md\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/zypp/repos.d/vscode.repo'
+
+RUN zypper refresh && zypper install -y code podman podman-docker neovim nodejs19 npm19 git man info
+
+RUN zypper update -y
+
+RUN pip install envsubst
