@@ -26,4 +26,5 @@ alias please='sudo !!'
 alias ls='ls --color=auto'
 alias ll='ls -l --color=auto'
 alias podman='podman --remote'
-# . "$HOME/.cargo/env"
+
+PATH=${PATH}:/usr/bin:${HOME}/.local/bin
