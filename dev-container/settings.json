@@ -1,0 +1,27 @@
+{
+    "workbench.sideBar.location": "right",
+    "editor.lineNumbers": "relative",
+    "redhat.telemetry.enabled": false,
+    "workbench.productIconTheme": "adwaita",
+    "window.titleBarStyle": "custom",
+    "window.commandCenter": true,
+    "window.autoDetectColorScheme": true,
+    "workbench.preferredDarkColorTheme": "Adwaita Dark",
+    "workbench.colorTheme": "Adwaita Dark",
+    "workbench.preferredLightColorTheme": "Adwaita Light",
+    "workbench.tree.indent": 12,
+    "editor.renderLineHighlight": "none",
+    "vscode_custom_css.imports": [
+        "file://$HOME/vscode-libadwaita/src/vs/workbench/browser/parts/editor/media/tabstitlecontrol.css",
+        "file://$HOME/vscode-libadwaita/src/vs/editor/browser/viewParts/viewCursors/viewCursors.css",
+        "file://$HOME/vscode-libadwaita/src/vs/editor/contrib/bracketMatching/browser/bracketMatching.css",
+        "file://$HOME/vscode-libadwaita/src/vs/editor/browser/viewParts/minimap/minimap.css",
+        "file://$HOME/vscode-libadwaita/src/vs/editor/contrib/wordHighlighter/browser/highlightDecorations.css",
+        "file://$HOME/vscode-libadwaita/src/vs/editor/contrib/hover/browser/hover.css",
+        "file://$HOME/vscode-libadwaita/src/vs/editor/contrib/suggest/browser/media/suggest.css",
+        "file://$HOME/vscode-libadwaita/src/vs/editor/contrib/parameterHints/browser/parameterHints.css",
+        "file://$HOME/vscode-libadwaita/src/vs/platform/quickinput/browser/media/quickInput.css",
+        "file://$HOME/vscode-libadwaita/src/vs/base/browser/ui/scrollbar/media/scrollbars.css",
+        "file://$HOME/vscode-libadwaita/src/vs/base/browser/ui/list/list.css"
+    ]
+}

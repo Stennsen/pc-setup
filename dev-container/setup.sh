@@ -17,16 +17,25 @@ fi
 echo "creating new container"
 distrobox create -n code -H ~/Code -i code-container:latest
 echo "done"
+
 systemctl --user enable --now podman.socket
-distrobox enter code -- distrobox-export -a codium
-distrobox enter code -- codium --install-extension piousdeer.adwaita-theme
-distrobox enter code -- codium --install-extension svelte.svelte-vscode
-distrobox enter code -- codium --install-extension vscodevim.vim
-distrobox enter code -- codium --install-extension ms-python.python
-distrobox enter code -- codium --install-extension vscode.npm
-distrobox enter code -- codium --install-extension redhat.java
-distrobox enter code -- codium --install-extension redhat.vscode-xml
-distrobox enter code -- codium --install-extension redhat.vscode-yaml
-distrobox enter code -- codium --install-extension bradlc.vscode-tailwindcss
-distrobox enter code -- codium --install-extension Kelvin.vscode-sshfs
+
+# install codium, extensions and settings
+distrobox enter code -- distrobox-export -a code
+
+for extension in $(cat extensions)
+do
+	echo 'installing VS-Codium extension $extension...'
+	distrobox enter code -- code --install-extension $extension
+done
+
+distrobox enter code -- cd && git clone git@github.com:wroyca/libadwaita-vscode-theme.git libadwaita-vscode
+
+distrobox enter code -- envsubst settings.json > $HOME/.config/Code/User/settings.json
+
+# install rust
+distrobox enter code -- curl --proto '=https' --tlsv1.3 https://sh.rustup.rs -sSf | sh
+
+ditrobox enter code -- sudo ln -s /usr/bin/distrobox-host-exec /usr/local/bin/xdg-open # links xdg-open to the host
+
 echo "dev container setup finished"
