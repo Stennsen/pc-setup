@@ -4,7 +4,6 @@ flatpak remote-add --user --if-not-exists flathub https://flathub.org/repo/flath
 flatpak remote-delete fedora
 flatpak update -y
 flatpak install -y --user flathub com.brave.Browser \
-	com.discordapp.Discord \
 	com.github.huluti.Curtail \
 	com.github.liferooter.textpieces \
 	com.github.tchx84.Flatseal \
@@ -15,12 +14,15 @@ flatpak install -y --user flathub com.brave.Browser \
 	net.scribus.Scribus \
 	org.audacityteam.Audacity \
 	com.obsproject.Studio \
-	org.gnome.Boxes \
 	org.gnome.Epiphany \
 	org.gnome.Calendar \
 	org.gustavoperedo.FontDownloader \
 	org.kde.kdenlive \
 	org.keepassxc.KeePassXC \
-	org.mozilla.firefox \
 	org.pulseaudio.pavucontrol \
-	org.texstudio.TeXstudio
+	com.usebottles.bottles \
+	org.gimp.GIMP \
+	org.videolan.VLC \
+	net.mullvad.MullvadBrowser \
+	com.github.IsmaelMartinez.teams_for_linux \
+	com.raggesilver.BlackBox
