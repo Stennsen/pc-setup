@@ -24,5 +24,4 @@ flatpak install -y --user flathub com.brave.Browser \
 	org.gimp.GIMP \
 	org.videolan.VLC \
 	net.mullvad.MullvadBrowser \
-	com.github.IsmaelMartinez.teams_for_linux \
 	com.raggesilver.BlackBox
