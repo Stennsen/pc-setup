@@ -31,7 +31,7 @@ done
 
 distrobox enter code -- cd && git clone git@github.com:wroyca/libadwaita-vscode-theme.git libadwaita-vscode
 
-distrobox enter code -- envsubst settings.json > $HOME/.config/Code/User/settings.json
+distrobox enter code -- mkdir -p $HOME/.config/Code/User/ && envsubst settings.json > $HOME/.config/Code/User/settings.json
 
 # install rust
 distrobox enter code -- curl --proto '=https' --tlsv1.3 https://sh.rustup.rs -sSf | sh

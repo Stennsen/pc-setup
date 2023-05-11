@@ -8,7 +8,7 @@
     "window.autoDetectColorScheme": true,
     "workbench.preferredDarkColorTheme": "Adwaita Dark",
     "workbench.colorTheme": "Adwaita Dark",
-    "workbench.preferredLightColorTheme": "Adwaita Light",
+    "workbench.preferredLightColorTheme": "Adwaita Dark",
     "workbench.tree.indent": 12,
     "editor.renderLineHighlight": "none",
     "vscode_custom_css.imports": [
