@@ -8,4 +8,4 @@ RUN zypper refresh && zypper install -y code podman podman-docker neovim nodejs1
 
 RUN zypper update -y
 
-RUN pip install envsubst
+RUN pip install envsubst podman-compose
