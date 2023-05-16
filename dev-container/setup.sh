@@ -29,13 +29,15 @@ do
 	distrobox enter code -- code --install-extension $extension
 done
 
-distrobox enter code -- cd && git clone git@github.com:wroyca/libadwaita-vscode-theme.git libadwaita-vscode
+echo 'getting gnome vscode flavour'
+distrobox enter code -- rm -rf $HOME/libadwaita-vscode && git clone git@github.com:wroyca/libadwaita-vscode-theme.git $HOME/vscode-libadwaita
 
-distrobox enter code -- mkdir -p $HOME/.config/Code/User/ && envsubst settings.json > $HOME/.config/Code/User/settings.json
+echo 'applying settings to VS-Code'
+distrobox enter code -- rm $HOME/.config/Code/User/settings.json && mkdir -p $HOME/.config/Code/User/ && envsubst settings.json > $HOME/.config/Code/User/settings.json
 
-# install rust
-distrobox enter code -- curl --proto '=https' --tlsv1.3 https://sh.rustup.rs -sSf | sh
+echo 'preparing ownership for Custom CSS extension'
+distrobox enter code -- sudo ln -s /usr/bin/distrobox-host-exec /usr/local/bin/xdg-open # links xdg-open to the host
 
-ditrobox enter code -- sudo ln -s /usr/bin/distrobox-host-exec /usr/local/bin/xdg-open # links xdg-open to the host
+distrobox enter code -- sudo chown -R $(whoami) $(which code) && sudo chown -R $(whoami) /usr/share/code
 
 echo "dev container setup finished"
